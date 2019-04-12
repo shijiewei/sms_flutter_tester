@@ -6,7 +6,7 @@ import com.mob.MobSDK;
 
 import io.flutter.app.FlutterActivity;
 import io.flutter.plugins.GeneratedPluginRegistrant;
-import cn.smssdk.flutter.SmssdkPlugin;
+import cn.smssdk.flutter.MobsmsPlugin;
 
 public class MainActivity extends FlutterActivity {
 	// 通过Mob console申请获得
@@ -18,7 +18,7 @@ public class MainActivity extends FlutterActivity {
     super.onCreate(savedInstanceState);
     GeneratedPluginRegistrant.registerWith(this);
 	// 注册SMSSDK Flutter插件
-    SmssdkPlugin.registerWith(registrarFor(SmssdkPlugin.CHANNEL));
+	  MobsmsPlugin.registerWith(registrarFor(MobsmsPlugin.CHANNEL));
 	  // 初始化SMSSDK
 	  MobSDK.init(this, MOB_APPKEY, MOB_APPSECRET);
   }
@@ -27,6 +27,6 @@ public class MainActivity extends FlutterActivity {
 	protected void onDestroy() {
 		super.onDestroy();
 		// 执行回收操作
-		SmssdkPlugin.recycle();
+		MobsmsPlugin.recycle();
 	}
 }
